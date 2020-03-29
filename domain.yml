@@ -1,0 +1,111 @@
+actions:
+- action_check_location
+- action_search_restaurants
+- action_send_email
+- utter_ask_budget
+- utter_ask_cuisine
+- utter_ask_email
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_ask_top_ten
+- utter_default
+- utter_goodbye
+- utter_greet
+- utter_incorrect_email
+- utter_location_not_found
+- utter_no_operations
+entities:
+- budget
+- cuisine
+- email
+- email_incorrect
+- greet
+- incorrect_email
+- location
+- location_correct
+- people
+- price
+intents:
+- send_email
+- restaurant_search
+- goodbye
+- greet
+- affirm
+- incorrect_email
+- stop
+responses:
+  utter_ask_budget:
+  - buttons:
+    - payload: <300
+      title: Less than 300
+    - payload: 300-700
+      title: Between 300-700
+    - payload: '>700'
+      title: More than 700
+    text: What's the budget for two you are looking at?
+  utter_ask_cuisine:
+  - buttons:
+    - payload: Chinese
+      title: Chinese
+    - payload: Italian
+      title: Italian
+    - payload: South Indian
+      title: South Indian
+    - payload: North Indian
+      title: North Indian
+    - payload: American
+      title: American
+    - payload: Mexican
+      title: Mexican
+    text: what kind of cuisine would you like?
+  utter_ask_email:
+  - text: Please provide email address
+  - text: Please enter the email address
+  utter_ask_howcanhelp:
+  - text: how can I help you?
+  utter_ask_location:
+  - text: In what location?
+  utter_ask_top_ten:
+  - buttons:
+    - payload: Yes, send me more information
+      title: Y
+    - payload: No, that's fine
+      title: N
+    text: Would you like me to send the details over to you via email?
+  utter_default:
+  - text: i cannot understand
+  utter_goodbye:
+  - text: goodbye :(
+  - text: Bye-bye
+  utter_greet:
+  - text: hey there! How may i help you
+  - text: Hi, How can I help you!
+  - text: Hey, How is it going. How May I help you Today
+  utter_incorrect_email:
+  - text: Looks like the email is incorrect , could you please re enter the correct
+      email id? ..
+  utter_location_not_found:
+  - text: Sorry. Could not find the desired region. (Please enter an Indian city).
+  utter_no_operations:
+  - text: Sorry, we don’t operate in this city. Can you please specify some other
+      location
+session_config:
+  carry_over_slots_to_new_session: true
+  session_expiration_time: 0
+slots:
+  budget:
+    type: text
+  cuisine:
+    type: text
+  email:
+    type: text
+  found_restaurants:
+    type: bool
+  location:
+    type: text
+  location_operational:
+    type: bool
+  location_valid:
+    type: bool
+  mail_sent:
+    type: bool
